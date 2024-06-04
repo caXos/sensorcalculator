@@ -45,28 +45,31 @@
     <input type="checkbox" id="includeArduinoUnoCaseInPrice" name="includeArduinoUnoCaseInPrice" value="1" onchange="calculateNeededArduino();">
   </div>
 
-  <p>Além dos sensores acima, serão necessários os seguintes produtos: <span id="neededArduino"></span></p>
-  <table id="arduinoTable">
-    <thead>
-      <tr>
-        <th>Sensor</th>
-        <th>Preço unitário</th>
-        <th>Quantidade</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody id="arduinoTableBody">
+  <div id="neededArduinoDiv" style="display: none;">
+    <p>Além dos sensores acima, serão necessários os seguintes produtos: <span id="neededArduino"></span></p>
+    <table id="arduinoTable">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço unitário</th>
+          <th>Quantidade</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="arduinoTableBody">
+  
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3">Total</th>
+          <th><span id="arduinoSubTotalAmount"></span></th>
+        </tr>
+      </tfoot>
+    </table>
 
-    </tbody>
-    <tfoot>
-      <tr>
-        <th colspan="3">Total</th>
-        <th><span id="arduinoSubTotalAmount"></span></th>
-      </tr>
-    </tfoot>
-  </table>
+    <p>O total deste orçamento é: <span id="totalAmount"></span></p>
+  </div>
 
-  <p id="subTotal">O total deste orçamento é: <span id="subTotalAmount"></span></p>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 

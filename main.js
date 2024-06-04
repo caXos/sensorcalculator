@@ -80,10 +80,76 @@ function calculateNeededArduino() {
         })
         if (arduinoBoard.length == 0) arduinoQtty++;
     } while (arduinoBoard.length == 0)
-    console.log(arduinoBoard, arduinoQtty)
+    calculateTotal();
 }
 
 function calculateTotal() {
-    total = sensorsSubTotalAmount + arduinoBoard[0].price;
-    document.getElementById("total").innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
+    total = 0;
+    document.getElementById('arduinoTableBody').innerHTML = "";
+
+    let template = 
+    `<tr>
+        <td>
+            ${arduinoBoard[0].name}
+            </td>
+            <td>
+            ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(arduinoBoard[0].price)}
+        </td>
+        <td>
+            ${arduinoQtty}
+        </td>
+        <td>
+            ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(arduinoBoard[0].price * arduinoQtty)}
+        </td>
+    </tr>`;
+    total += arduinoBoard[0].price * arduinoQtty;
+
+    if (includeArduinoUnoCaseInPrice) {
+        let arduinoCase = products.accessories.filter((product) => {
+            return product.name === "Case para Arduino UNO";
+        });
+        template += 
+        `<tr>
+            <td>
+                ${arduinoCase[0].name}
+            </td>
+            <td>
+                ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(arduinoCase[0].price)}
+            </td>
+            <td>
+                ${arduinoQtty}
+            </td>
+            <td>
+                ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(arduinoCase[0].price * arduinoQtty)}
+            </td>    
+        </tr>`;
+        total += arduinoCase[0].price * arduinoQtty;
+    }
+    
+    let acAdapter = products.accessories.filter((product) => {
+        return product.name === "Fonte chaveada 9V 1A plug P4";
+    })
+    template += 
+        `<tr>
+            <td>
+                ${acAdapter[0].name}
+            </td>
+            <td>
+                ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(acAdapter[0].price)}
+            </td>
+            <td>
+                ${arduinoQtty}
+            </td>
+            <td>
+                ${new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(acAdapter[0].price * arduinoQtty)}
+            </td>    
+        </tr>`;
+    total += acAdapter[0].price * arduinoQtty;
+
+    document.getElementById('arduinoTableBody').innerHTML = template;
+    
+    total += sensorsSubTotalAmount;
+    document.getElementById("totalAmount").innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(total);
+
+    document.getElementById('neededArduinoDiv').style.display = "block";
 }
