@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arduino Sensor BOM</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+
+<body>
+  <h1>Orçamento de sensores e placas Arduino</h1>
+  <p>Escolha na tabela abaixo quantos sensores serão utilizados:</p>
+  <table id="sensorTable">
+    <thead>
+      <tr>
+        <th>Sensor</th>
+        <th>Preço unitário</th>
+        <th>Quantidade</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody id="sensorTableBody">
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="3">Total</th>
+        <th><span id="sensorsSubTotalAmount"></span></th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div>
+    <label for="analogOutputs">Saídas analógicas (exemplo: LED com variação de intensidade de cor; buzina com variação na intensidade de volume; motor com variação na velocidade de rotação):</label>
+    <input type="number" min="0" step="1" id="analogOutputs" name="analogOutputs" value="0" onchange="calculateNeededArduino();">
+  </div>
+  <div>
+    <label for="digitalOutputs">Saídas digitais (exemplo: LED ligado ou desligado; buzina ligada ou desligada; motor ligado ou desligado):</label>
+    <input type="number" min="0" step="1" id="digitalOutputs" name="digitalOutputs" value="1" onchange="calculateNeededArduino();">
+  </div>
+  
+  <div>
+    <label for="includeArduinoUnoCaseInPrice">Incluir case para placa Arduino Uno no orçamento</label>
+    <input type="checkbox" id="includeArduinoUnoCaseInPrice" name="includeArduinoUnoCaseInPrice" value="1" onchange="calculateNeededArduino();">
+  </div>
+
+  <p>Além dos sensores acima, serão necessários os seguintes produtos: <span id="neededArduino"></span></p>
+  <table id="arduinoTable">
+    <thead>
+      <tr>
+        <th>Sensor</th>
+        <th>Preço unitário</th>
+        <th>Quantidade</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody id="arduinoTableBody">
+
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="3">Total</th>
+        <th><span id="arduinoSubTotalAmount"></span></th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <p id="subTotal">O total deste orçamento é: <span id="subTotalAmount"></span></p>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+
+</html>

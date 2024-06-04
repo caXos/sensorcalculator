@@ -1,0 +1,85 @@
+{
+    "boards": [
+        {
+            "name": "Arduino NANO",
+            "analogPorts": 8,
+            "digitalPorts": 20,
+            "price": 39.90,
+            "acAdapterCompatible": true
+        },
+        {
+            "name": "Arduino UNO",
+            "analogPorts": 6,
+            "digitalPorts": 20,
+            "price": 46.90,
+            "acAdapterCompatible": true            
+        },
+        {
+            "name": "Arduino MEGA",
+            "analogPorts": 16,
+            "digitalPorts": 70,
+            "price": 178.90,
+            "acAdapterCompatible": true
+        }
+    ],
+    "sensors": [
+        {
+            "name": "Gás MQ-2 Inflamável e fumaça",
+            "price": 15.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-135 Gases tóxicos",
+            "price": 17.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-7 Monóxido de carbono",
+            "price": 18.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-3 Alcool",
+            "price": 21.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-4 Metano",
+            "price": 17.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-9 Monóxido de carbono",
+            "price": 19.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-6 GLP Isobutano",
+            "price": 16.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        },
+        {
+            "name": "Gás MQ-5 GLP e gás natural",
+            "price": 17.90,
+            "analogPins": 1,
+            "digitalPins": 1
+        }
+    ],
+    "accessories": [
+        {
+            "name": "Case para Arduino UNO",
+            "price": 19.90
+        },
+        {
+            "name": "Fonte chaveada 9V 1A plug P4",
+            "price": 19.90
+        }
+    ]
+}
